@@ -59,7 +59,7 @@
 ```
 
 
-## [3] 옵셔널 / 옵셔널 값 추출
+## [3] 옵셔널
 강의 영상: <https://www.youtube.com/watch?v=RxScvfe1dyU>
 
 1. Optional
@@ -99,10 +99,12 @@
         }
       
         let optionalValueL Optional<Int> = nil
-       let optionalValue: Int? = nil
+        let optionalValue: Int? = nil
     
   2. ! 사용 : 암시적 추출 옵셔널(Implicitly Unwrapped Optional)
-    - 
+    - 기존 변수처럼 사용 가능
+    - nil 할당 가능
+    - 잘못된 접근으로 인한 런타임 오류 발생 (ex) optionalValue에 nil 값을 넣어놓은 상태에서 변수로 접근하려 할 경우)
     ex) var optionalValue: Int! = 100
   
         switch optionalValue {
@@ -111,9 +113,16 @@
             case .some(let value):
                 print("Value is \(value)")
         }
-      
+  
+  3. ? 사용 : 일반적인 Optional
+    - nil 할당 가능
+    - 기존 변수처럼 사용 불가 - 옵셔널과 일반 값은 다른 타입이므로 연산불가
+    ex) var optionalValue: Int? = 100
+        
+        switch optionalValue {
+            case .none:
+                print("This Optional variable is nil")
+            case .some(let value):
+                print("Value is \(value)")
+        }
 ```
-
-4. 
-
-
