@@ -1,3 +1,5 @@
+# Swift 문법 정리 - 1주차
+
 ## [1] 이름짓기, 콘솔로그, 문자열 보간법
 강의 영상: <https://www.youtube.com/watch?v=8Xe_fr_WRgc>
 
@@ -53,12 +55,65 @@
   2. 선언 방식: var 이름: 타입 = 값 (타입이 명확할 경우 타입 생략 가능)
   ex) var variable: String = “차후에 변경이 가능한 변수 var”
   variable = “변수는 차후에 다른 값을 할당할 수 있다.”
+  * 변수에 값이 할당되지 않은 상태에서 변수를 사용할 시 에러가 남
 ```
 
 
 ## [3] 옵셔널 / 옵셔널 값 추출
 강의 영상: <https://www.youtube.com/watch?v=RxScvfe1dyU>
 
+1. Optional
+```
+  : 값이 '있을 수도, 없을 수도 있음'
+  - 열거형(enum)과 general의 합작
+```
 
+2. Optional의 필요성
+```
+  [ nil의 가능성을 명시적으로 표현함 ]
+    - nil 가능성을 문서화 하지 않아도 코드만으로 충분히 표현가능
+      * 문서 / 주석 작성 시간을 절약
+    - 전달받은 값이 옵셔널이 아니라면 nil체크를 하지 않더라도 안심하고 사용
+      * 효율적인 코딩
+      * 예외 상황을 최소화하는 안전한 코딩
+    ex) // someOptionalParam can be nil
+        func someFunction(someOptionalParam: Int?){
+        //...
+        }
+        
+        //someParam must not be nil
+        func someFunction(someParam: Int){
+        //...
+        }
+        
+        => someFunction(someOptionalParam: nil) [O]
+        => someFunction(someParam: nil) [X]
+```
+
+3. Optional의 사용
+```
+  1. Optional의 사용
+    ex) enum Optional<Wrapped> : ExpressibleByNilLiteral{
+             case none
+             case some(Wrapped)
+        }
+      
+        let optionalValueL Optional<Int> = nil
+       let optionalValue: Int? = nil
+    
+  2. ! 사용 : 암시적 추출 옵셔널(Implicitly Unwrapped Optional)
+    - 
+    ex) var optionalValue: Int! = 100
+  
+        switch optionalValue {
+            case .none:
+                print("This Optional variable is nil")
+            case .some(let value):
+                print("Value is \(value)")
+        }
+      
+```
+
+4. 
 
 
